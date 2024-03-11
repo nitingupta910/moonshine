@@ -105,9 +105,9 @@ pub fn main() !void {
 
     var pipeline = try Pipeline.create(&context, &vk_allocator, allocator, &commands, scene.world.materials.textures.descriptor_layout, .{
         .samples_per_run = 1,
-        .max_bounces = 1024,
-        .env_samples_per_bounce = 1,
-        .mesh_samples_per_bounce = 1,
+        .max_bounces = 1,
+        .env_samples_per_bounce = 32,
+        .mesh_samples_per_bounce = 0,
     }, .{ scene.background.sampler });
     defer pipeline.destroy(&context);
 
